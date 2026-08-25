@@ -9,23 +9,25 @@ def load_data(file_path):
 
 def animals_output(data):
     output = ""
+
     for animal in data:
+        output += '<li class="cards__item">'
         if name := animal.get("name"):
-            output += f"Name: {name}\n"
+            output += f"Name: {name}<br/>"
 
         # Sicheres Auslesen verschachtelter Dictionaries:
         characteristics = animal.get("characteristics", {})
         if diet := characteristics.get("diet"):
-            output += f"Diet: {diet}\n"
+            output += f"Diet: {diet}<br/>"
 
         locations = animal.get("locations", [])
         if locations:
-            output += f"Location: {locations[0]}\n"
+            output += f"Location: {locations[0]}<br/>"
 
         if animal_type := characteristics.get("type"):
-            output += f"Type: {animal_type}\n"
+            output += f"Type: {animal_type}<br/>"
 
-        output += "\n"
+        output += '</li>'
     return output
 
 
