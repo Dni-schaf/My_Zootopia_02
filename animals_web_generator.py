@@ -6,6 +6,7 @@ def load_data(file_path):
     with open(file_path, "r", encoding="utf-8") as handle:
         return json.load(handle)
 
+
 def serialize_animal(animal):
     output = ""
     output += '<li class="cards__item">'
@@ -50,4 +51,3 @@ new_html = html_template.replace("__REPLACE_ANIMALS_INFO__", animals_info)
 
 with open("animals.html", "w", encoding="utf-8") as file:
     file.write(new_html)
-
